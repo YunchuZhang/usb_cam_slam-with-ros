@@ -52,7 +52,7 @@ iaccux = 0
 nowerrx = 0
 out = 512
 inverse = 0
-grip = 
+
 dxl_goal =[512,85,695,686] 
 settheta =[512,85,695,686]
 
