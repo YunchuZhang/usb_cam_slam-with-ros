@@ -683,16 +683,14 @@ total=555
 index = 0
 while True :
 
-	while True :
-		print("index",index)
-		for ID in range(1,6):
-			dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, ID, ADDR_PRO_GOAL_POSITION, dxl_goal_position[index][ID-1])
-			print(dxl_goal_position[index][ID-1])
-			if dxl_comm_result != COMM_SUCCESS:
-				print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
-			elif dxl_error != 0:
-				print("%s" % packetHandler.getRxPacketError(dxl_error)) 
-
+	print("index",index)
+	for ID in range(1,6):
+		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, ID, ADDR_PRO_GOAL_POSITION, dxl_goal_position[index][ID-1])
+		print(dxl_goal_position[index][ID-1])
+		if dxl_comm_result != COMM_SUCCESS:
+			print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
+		elif dxl_error != 0:
+			print("%s" % packetHandler.getRxPacketError(dxl_error)) 
 		time.sleep(0.1)
 
 	if (index == total):
