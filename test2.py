@@ -1101,7 +1101,7 @@ while True :
 		elif dxl_error != 0:
 			print("%s" % packetHandler.getRxPacketError(dxl_error)) 
 
-		time.sleep(0.05)
+		#time.sleep(0.05)
 
 	if (index == total):
 		time.sleep(30)
