@@ -53,7 +53,7 @@ nowerrx = 0
 out = 512
 inverse = 0
 
-dxl_goal =[512,85,695,686] 
+dxl_goal =[206,512,512,512,732] 
 settheta =[512,85,695,686]
 
 # Initialize PortHandler instance
@@ -86,7 +86,7 @@ else:
     quit()
 
 # Enable Dynamixel Torque
-for ID in range(1,5):
+for ID in range(1,6):
 	dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_ENABLE)
 	if dxl_comm_result != COMM_SUCCESS:
 		print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
@@ -682,10 +682,11 @@ dxl_goal_position = [
 total=555
 index = 0
 while True :
+
 	while True :
-		for ID in range(1,5):
+		for ID in range(1,6):
 			dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, ID, ADDR_PRO_GOAL_POSITION, dxl_goal_position[index][ID-1])
-			print(settheta[ID-1])
+			print(dxl_goal_position[index][ID-1])
 			if dxl_comm_result != COMM_SUCCESS:
 				print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
 			elif dxl_error != 0:
